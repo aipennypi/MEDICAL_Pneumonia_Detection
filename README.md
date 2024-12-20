@@ -26,12 +26,12 @@ dataset/<br>
 data source :https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data
 
 <h2>workflow</h2>
-Load the dataset from the specified directory paths.
-Use TensorFlow's data pipeline to read, decode, and preprocess the images.
-Build the CNN architecture or transfer learning using VGG16 for improved performance.
-Compile the model and train it using the training dataset.
-Evaluate the model's performance on the test dataset.
-Visualize the training history and confusion matrix for model performance assessment.
+Load the dataset from the specified directory paths.<br>
+Use TensorFlow's data pipeline to read, decode, and preprocess the images.<br>
+Build the CNN architecture or transfer learning using VGG16 for improved performance.<br>
+Compile the model and train it using the training dataset.<br>
+Evaluate the model's performance on the test dataset.<br>
+Visualize the training history and confusion matrix for model performance assessment.<br>
 
 <h2>License</h2>
 This project is licensed under the MIT License.
