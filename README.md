@@ -7,17 +7,17 @@ In section2, we using Transfer learning for better solution. VGG16 is the best c
 <h2>Data Format</h2>
 The dataset should be organized into the following directory structure:
 dataset/<br>
-    train/<br>
+    &nbsp;train/<br>
         Pneumonia/<br>
             *.jpeg<br>
         Normal/<br>
             *.jpeg<br>
-    valid/<br>
+   &nbsp; valid/<br>
         Pneumonia/<br>
             *.jpeg<br>
         Normal/<br>
             *.jpeg<br>
-    test/<br>
+   &nbsp; test/<br>
         Pneumonia/<br>
             *.jpeg<br>
         Normal/<br>
