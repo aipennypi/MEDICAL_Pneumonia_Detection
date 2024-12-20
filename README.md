@@ -1,26 +1,26 @@
 <h1>Pneumonia Detection with CNN </h1>
-<h2><Overview</h2>
+<h2><Overview</h2><br>
 This repository contains a deep learning implementation for detecting pneumonia from chest X-ray images using Convolutional Neural Networks (CNN) with TensorFlow and Keras. The model is trained to classify images into two categories: 'Pneumonia' and 'Normal'. This project aims to assist in the early detection of pneumonia, a serious respiratory condition, through automated image analysis.
 In section2, we using Transfer learning for better solution. VGG16 is the best choice after comparasion.
   
 <h2>Data Format</h2>
 The dataset should be organized into the following directory structure:
-dataset/
-    train/
-        Pneumonia/
-            *.jpeg
-        Normal/
-            *.jpeg
-    valid/
-        Pneumonia/
-            *.jpeg
-        Normal/
-            *.jpeg
-    test/
-        Pneumonia/
-            *.jpeg
-        Normal/
-            *.jpeg
+dataset/<br>
+    train/<br>
+        Pneumonia/<br>
+            *.jpeg<br>
+        Normal/<br>
+            *.jpeg<br>
+    valid/<br>
+        Pneumonia/<br>
+            *.jpeg<br>
+        Normal/<br>
+            *.jpeg<br>
+    test/<br>
+        Pneumonia/<br>
+            *.jpeg<br>
+        Normal/<br>
+            *.jpeg<br>
 
 data source :https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data
 
