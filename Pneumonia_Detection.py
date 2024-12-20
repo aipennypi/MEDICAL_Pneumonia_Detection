@@ -1,4 +1,4 @@
-PATH_PATTERN = '/content/drive/MyDrive/medicalsingnal/medicalimg/dataset/train/*/*.jpeg'
+PATH_PATTERN = './dataset/train/*/*.jpeg'
 CLASSES = ['Pneumonia', 'Normal']
 
 import tensorflow as tf
@@ -66,9 +66,9 @@ for filename in filenames_dataset.take(800):#nb_images
 from tensorflow.keras.preprocessing.image import ImageDataGenerator #Import the ImageDataGenerator class
 
 # Here we are going to use tensorflow "ImageDataGenerator" module.
-train_data_folder = '/content/drive/MyDrive/model/llungcancer/dataset/train'
-valid_data_folder = '/content/drive/MyDrive/model/llungcancer/dataset/valid'
-test_data_folder = '/content/drive/MyDrive/model/llungcancer/dataset/test'
+train_data_folder = './Pneumonia/dataset/train'
+valid_data_folder = './Pneumonia/dataset/valid'
+test_data_folder = './Pneumonia/dataset/test'
 
 img_size = (224, 224)
 batch_size = 60
@@ -176,6 +176,22 @@ model.add(keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu', ke
 model.add(layers.BatchNormalization()),
 model.add(layers.Dropout(0.35))
 model.add(keras.layers.MaxPooling2D(),)'
+model.summary()
+
+#TRAIN THE MODEL
+import numpy as np
+
+model.compile(optimizer=Adam(learning_rate=0.0001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Assuming 'Pneumonia' is one class and 'Normal' is the other
+label_mapping = {'Pneumonia': 0, 'Normal': 1} # Create a dictionary to map labels to integers
+
+X_train = np.array([np.resize(img.numpy(), (224, 224, 3)) for img in df['Images'].tolist()])
+y_train = np.array([label_mapping[label.numpy().decode('utf-8')] for label in df['Class']]) # Decode byte strings and map to integers
+
+print("X_train:", X_train.shape, X_train.dtype)
+print("y_train:", y_train.shape, y_train.dtype)
+cnn_train_history = model.fit(X_train, y_train, epochs=24, batch_size=32, validation_split=0.2,callbacks=[es])
 # VGG
 
 from tensorflow.keras import layers, models
@@ -196,7 +212,21 @@ model.add(keras.layers.Flatten(),)
 model.add(keras.layers.Dense(128, activation='relu'),)
 model.add(layers.Dropout(0.5))
 model.add(keras.layers.Dense(2, activation='softmax'))  # Binary classification, so use 1 output with sigmoid activation
+model.summary()
+#TRAIN THE MODEL
+import numpy as np
 
+model.compile(optimizer=Adam(learning_rate=0.0001), loss='sparse_categorical_crossentropy', metrics=['accuracy'])
+
+# Assuming 'Pneumonia' is one class and 'Normal' is the other
+label_mapping = {'Pneumonia': 0, 'Normal': 1} # Create a dictionary to map labels to integers
+
+X_train = np.array([np.resize(img.numpy(), (224, 224, 3)) for img in df['Images'].tolist()])
+y_train = np.array([label_mapping[label.numpy().decode('utf-8')] for label in df['Class']]) # Decode byte strings and map to integers
+
+print("X_train:", X_train.shape, X_train.dtype)
+print("y_train:", y_train.shape, y_train.dtype)
+vgg_train_history = model.fit(X_train, y_train, epochs=24, batch_size=32, validation_split=0.2,callbacks=[es])
 #draw the metrics
 import matplotlib.pyplot as plt
 def plot_image(image):
@@ -234,7 +264,7 @@ def show_train_history(train_history, train, validation):
     plt.show()
 
 #Evaluation
-T_PATH = '/content/drive/MyDrive/medicalsingnal/medicalimg/dataset/test/*/*.jpeg'
+T_PATH = './dataset/test/*/*.jpeg'
 tnb_images = len(tf.io.gfile.glob(T_PATH))
 print ('number of images:',nb_images)
 print("Pattern matches {} images.".format(nb_images))
