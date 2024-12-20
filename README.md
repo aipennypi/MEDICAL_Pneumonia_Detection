@@ -8,20 +8,20 @@ In section2, we using Transfer learning for better solution. VGG16 is the best c
 The dataset should be organized into the following directory structure:
 dataset/<br>
     &nbsp;train/<br>
-        &nbsp;&nbsp;&nbsp;Pneumonia/<br>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*.jpeg<br>
-       &nbsp;&nbsp;&nbsp; Normal/<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *.jpeg<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pneumonia/<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*.jpeg<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Normal/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *.jpeg<br>
    &nbsp; valid/<br>
-        Pneumonia/<br>
-            *.jpeg<br>
-        Normal/<br>
-            *.jpeg<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pneumonia/<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*.jpeg<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Normal/<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  *.jpeg<br>
    &nbsp; test/<br>
-        Pneumonia/<br>
-            *.jpeg<br>
-        Normal/<br>
-            *.jpeg<br>
+       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Pneumonia/<br>
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; *.jpeg<br>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  Normal/<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*.jpeg<br>
 
 data source :https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia/data
 
