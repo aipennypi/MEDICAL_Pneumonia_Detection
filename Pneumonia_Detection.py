@@ -148,24 +148,24 @@ model.add(keras.layers.MaxPooling2D(),)
 # Second Convolutional Layer
 model.add(keras.layers.Conv2D(32, (3, 3), padding='same', activation='relu'),)
 model.add(keras.layers.Conv2D(32, (3, 3), padding='same', activation='relu'),)
-#model.add(layers.BatchNormalization()),
+model.add(layers.BatchNormalization()),
 model.add(keras.layers.MaxPooling2D(),)
 
 # Third Convolutional Layer
 model.add(keras.layers.Conv2D(64, (3, 3), padding='same', activation='relu'),)
 model.add(keras.layers.Conv2D(64, (3, 3), padding='same', activation='relu'),)
-#model.add(layers.BatchNormalization()),
+model.add(layers.BatchNormalization()),
 model.add(keras.layers.MaxPooling2D(),)
 # 4th Convolutional Layer
 model.add(keras.layers.Conv2D(128, (3, 3), padding='same', activation='relu'),)
 model.add(keras.layers.Conv2D(128, (3, 3), padding='same', activation='relu'),)
-#model.add(layers.BatchNormalization()),
+model.add(layers.BatchNormalization()),
 model.add(layers.Dropout(0.1))
 model.add(keras.layers.MaxPooling2D(),)
 # 5th Convolutional Layer
 model.add(keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu'),)
 model.add(keras.layers.Conv2D(256, (3, 3), padding='same', activation='relu', kernel_regularizer=tf.keras.regularizers.l2(0.01)),)
-#model.add(layers.BatchNormalization()),
+model.add(layers.BatchNormalization()),
 model.add(layers.Dropout(0.2))
 model.add(keras.layers.MaxPooling2D(),)
 
