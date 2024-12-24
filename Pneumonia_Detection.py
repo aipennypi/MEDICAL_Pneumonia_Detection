@@ -176,6 +176,11 @@ model.add(keras.layers.Conv2D(512, (3, 3), padding='same', activation='relu', ke
 model.add(layers.BatchNormalization()),
 model.add(layers.Dropout(0.35))
 model.add(keras.layers.MaxPooling2D(),)'
+
+# Dense (Fully Connected) Layers
+model.add(keras.layers.Dense(128, activation='relu'),)
+model.add(layers.Dropout(0.5))
+model.add(keras.layers.Dense(2, activation='softmax'))  
 model.summary()
 
 #TRAIN THE MODEL
@@ -305,7 +310,7 @@ y_pred = model.predict(X_test, verbose=0)
 if isinstance(y_pred, tf.RaggedTensor):
   y_pred = y_pred.to_tensor()
 y_pred_classes = np.argmax(y_pred, axis=1)
-label_names = ['Fall', 'No Fall', 'Sitting']
+label_names = ['Pneumonia', 'Normal']
 #print (y_pred_classes)
 #print (y_test)
 
@@ -320,25 +325,4 @@ plt.ylabel('True')
 #plt.savefig(f'confusion_matrix_{model_name}.png')
 plt.show()
 
-#confusion matrix
-from sklearn.metrics import confusion_matrix, roc_curve, auc, accuracy_score, precision_score, recall_score, f1_score
-import seaborn as sns
 
-y_pred = model.predict(X_test, verbose=0)
-if isinstance(y_pred, tf.RaggedTensor):
-  y_pred = y_pred.to_tensor()
-y_pred_classes = np.argmax(y_pred, axis=1)
-label_names = ['Fall', 'No Fall', 'Sitting']
-#print (y_pred_classes)
-#print (y_test)
-
-
-# Plot confusion matrix
-conf_mat = confusion_matrix(y_test, y_pred_classes)
-plt.figure(figsize=(7, 6))
-sns.heatmap(conf_mat, annot=True, fmt='d', cmap='Blues')
-plt.title('Confusion Matrix' )
-plt.xlabel('Predicted')
-plt.ylabel('True')
-#plt.savefig(f'confusion_matrix_{model_name}.png')
-plt.show()
